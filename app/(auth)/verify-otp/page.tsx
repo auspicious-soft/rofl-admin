@@ -3,14 +3,12 @@
 import AuthLayout from "@/app/component/AuthLayout";
 import { ArrowRight} from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export default function Home() {
-  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter()
   return (
     <AuthLayout>
-      <form className="space-y-5 border p-5 rounded-3xl">
+      <form className="space-y-5 border border-[#eeeaea] p-5 rounded-3xl">
         {/* Heading */}
         <div className="text-center">
           <h1 className="text-4xl text-center self-stretch [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison text-[#F2482D] drop-shadow-sm">

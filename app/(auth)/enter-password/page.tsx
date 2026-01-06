@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <AuthLayout>
       <form
-        className="space-y-5 border p-5 rounded-3xl"
+        className="space-y-5 border border-[#eeeaea] p-5 rounded-3xl"
         onSubmit={handleSubmit}
       >
         {/* Heading */}
