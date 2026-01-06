@@ -162,20 +162,6 @@ const SellerDashboard = () => {
       key: "status",
       label: "Status",
       render: (value) => getStatusBadge(value),
-      dropdown: {
-        options: [
-          "All",
-          "Pending",
-          "Active",
-          "Sold Out",
-          "Completed",
-          "Expired",
-        ],
-        onChange: (value) => {
-          setSelectedStatus(value);
-          console.log("Filter by:", value);
-        },
-      },
     },
     { key: "time", label: "Time Left" },
   ];

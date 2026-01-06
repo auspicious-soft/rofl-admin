@@ -67,6 +67,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
       setCurrentPage(currentPage + 1);
     }
   };
+  
 
   return (
     <div className="bg-white rounded-lg shadow-sm p-6">
@@ -142,7 +143,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
                     <div className="flex gap-2">
                       {actions.view && (
                         <button
-                          onClick={() => actions.view(row)}
+                          onClick={() => (actions as any).view(row)}
                           className="w-8 h-8 flex items-center justify-center bg-[#497BC6] rounded text-white hover:bg-[#3a6bb0] transition-colors"
                         >
                           <OpenEye />
@@ -150,7 +151,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
                       )}
                       {actions.approve && (
                         <button
-                          onClick={() => actions.approve(row)}
+                          onClick={() => (actions as any).approve(row)}
                           className="w-8 h-8 flex items-center justify-center bg-[#4FA662] rounded text-white hover:bg-[#3d8a4f] transition-colors"
                         >
                           <Edit />
