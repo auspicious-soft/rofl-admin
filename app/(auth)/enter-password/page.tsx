@@ -124,7 +124,7 @@ export default function Home() {
                 router.push("/");
               }}
             >
-              Continue →
+              Continue <ArrowRight/>
             </button>
           </div>
         </div>

@@ -16,17 +16,19 @@ interface TableColumn {
 const SellerDashboard = () => {
   const [sortValue, setSortValue] = useState<string>("newest");
   const [statusFilter, setStatusFilter] = useState<string>("all");
-  const [modalOpen, setModalOpen] = useState(false);
-  const router = useRouter();
+  const [modalOpen,setModalOpen] = useState(false)
+  const router = useRouter()
 
   const sellerData = {
     name: "Alexander Thompson",
+    reasonToBlock:"Too many disputes against this seller",
     email: "alexander.t@mail.com",
     phone: "+1 567 890 1209",
     address: "321 Sunshine Ave, Apt 7, Port Washington, NY 10025",
     profileImage:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
   };
+
 
   const items = [
     {
@@ -155,17 +157,18 @@ const SellerDashboard = () => {
   ];
 
   const activeActions = [
-    {
-      key: "view",
-      icon: <OpenEye />,
-      onClick: () => router.push("/admin/sellers/45"),
-      className: "bg-[#497BC6] text-white hover:bg-[#3a6bb0]",
-    },
-  ];
-  const handleBlock = (data: any) => {
+      {
+        key: "view",
+        icon: <OpenEye />,
+        onClick: () => router.push("/admin/sellers/45"),
+        className: "bg-[#497BC6] text-white hover:bg-[#3a6bb0]",
+      },
+    ];
+    const handleUnBlock = (data: any) => {
     setModalOpen(false);
     // Add your rejection logic here
   };
+
   return (
     <div className="min-h-screen">
       <div className="mx-auto">
@@ -189,32 +192,38 @@ const SellerDashboard = () => {
                     {sellerData.name}
                   </h1>
 
-                  <button 
-                  onClick={() => setModalOpen(true)}
-                  className="bg-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] text-white text-xs px-4 py-1.5 rounded-md w-fit">
-                    Block Seller
+                  <button
+                  onClick={()=> setModalOpen(true)}
+                   className="bg-[#F2482D] shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] text-white text-xs font-medium px-4 py-1.5 rounded-md w-fit">
+                    Seller Blocked
                   </button>
                 </div>
 
                 {/* Details */}
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 text-sm">
+                   <div className="sm:col-span-2">
+                    <p className="text-xs text-gray-400 mb-1">Reason to Block</p>
+                    <p className="text-black text-base font-medium ">
+                      {sellerData.reasonToBlock}
+                    </p>
+                  </div>
                   <div>
                     <p className="text-xs text-gray-400 mb-1">Email Address</p>
-                    <p className="text-gray-700 font-medium">
+                    <p className="text-black text-base font-medium">
                       {sellerData.email}
                     </p>
                   </div>
 
                   <div>
                     <p className="text-xs text-gray-400 mb-1">Phone Number</p>
-                    <p className="text-gray-700 font-medium">
+                    <p className="text-black text-base font-medium">
                       {sellerData.phone}
                     </p>
                   </div>
 
                   <div className="sm:col-span-2">
                     <p className="text-xs text-gray-400 mb-1">Address</p>
-                    <p className="text-gray-700 font-medium">
+                    <p className="text-black text-base font-medium">
                       {sellerData.address}
                     </p>
                   </div>
@@ -264,12 +273,12 @@ const SellerDashboard = () => {
 
               <div className="flex flex-wrap gap-2">
                 {["ID Front", "ID Back", "Selfie"].map((label) => (
-                  <p
+                  <button
                     key={label}
                     className="px-4 py-1.5 rounded-lg bg-[#FFF6F6] text-xs text-gray-600 border border-gray-200"
                   >
                     {label}
-                  </p>
+                  </button>
                 ))}
               </div>
             </div>
@@ -281,7 +290,7 @@ const SellerDashboard = () => {
           title="Items Listed"
           columns={columns}
           data={items}
-          rowActions={activeActions}
+          rowActions={ activeActions}
           pagination={{ enabled: true, itemsPerPage: 10 }}
           headerActions={{
             dropdowns: [
@@ -315,16 +324,16 @@ const SellerDashboard = () => {
       <ReusableModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        type="block"
-        title="Block Seller?"
-        description="Are you sure you want to block this seller?"
-        primaryButtonText="Block"
+        type="unblock"
+        title="Unblock Seller?"
+        description="Are you sure you want to Unblock this seller?"
+        primaryButtonText="Unblock"
         primaryButtonColor="bg-[#F2482D]"
         showRemarks={true}
         remarksLabel="Add Remarks"
         remarksPlaceholder="Description"
         remarksList={[]}
-        onPrimaryAction={handleBlock}
+        onPrimaryAction={handleUnBlock}
       />
     </div>
   );

@@ -11,7 +11,8 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { Eye, OpenEye } from "@/app/utils/icons";
+import { Edit, Eye, OpenEye } from "@/app/utils/icons";
+import { useRouter } from "next/navigation";
 
 interface TableColumn {
   key: string;
@@ -21,6 +22,8 @@ interface TableColumn {
 
 // Main Dashboard Page
 const DashboardPage = () => {
+
+  const router = useRouter()
   // Active Items Data
   const activeItemsData = [
     {
@@ -99,13 +102,22 @@ const recentWinnersData = [
     { month: "12", value: 135 },
   ];
 
-  const handleView = (row: any) => {
-    console.log("View:", row);
-  };
-
-  const handleApprove = (row: any) => {
-    console.log("Approve:", row);
-  };
+const activeActions = [
+    {
+      key: "view",
+      icon: <OpenEye />,
+      variant: "icon",
+      onClick: () => router.push("/admin/sellers/45"),
+      className: "bg-[#497BC6] text-white",
+    },
+    {
+      key: "view",
+      icon: <Edit />,
+      variant: "icon",
+      onClick: () => router.push("/admin/sellers/45"),
+      className: "bg-[#4FA662] text-white",
+    },
+  ];
 
   return (
     <div className="min-h-screen ">
@@ -145,10 +157,7 @@ const recentWinnersData = [
               title="Active Items"
               columns={activeItemsColumns}
               data={activeItemsData}
-              actions={{
-                view: handleView,
-                approve: handleApprove,
-              }}
+              rowActions={activeActions}
             />
           </div>
 

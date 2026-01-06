@@ -115,3 +115,156 @@ export function Edit() {
     </svg>
   );
 }
+export function Delete() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M2.02637 2.86276C2.0099 2.73927 2.05297 2.61575 2.15446 2.54349C2.61837 2.21318 4.20971 1.3335 8.00024 1.3335C11.7908 1.3335 13.3821 2.21318 13.846 2.54349C13.9475 2.61575 13.9906 2.73927 13.9741 2.86276L12.8413 11.3587C12.7314 12.1831 12.2432 12.909 11.5211 13.3216L11.3078 13.4434C9.25831 14.6146 6.74217 14.6146 4.69265 13.4434L4.47939 13.3216C3.75731 12.909 3.26907 12.1831 3.15916 11.3587L2.02637 2.86276Z"
+        stroke="white"
+        strokeWidth="0.666667"
+      />
+      <path
+        d="M2 3.3335C3.71429 5.11127 12.2857 5.11124 14 3.3335"
+        stroke="white"
+        strokeWidth="0.666667"
+      />
+    </svg>
+  );
+}
+
+export function Approve() {
+  return (
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100" height="100" fill="url(#approvePattern)" />
+
+      <defs>
+        <pattern
+          id="approvePattern"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use href="#approveImage" transform="scale(0.00195312)" />
+        </pattern>
+
+        <image
+          id="approveImage"
+          width="512"
+          height="512"
+          preserveAspectRatio="none"
+          href="data:image/png;base64,...."
+        />
+      </defs>
+    </svg>
+  );
+}
+
+
+export function Reject() {
+  return (
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100" height="100" fill="url(#pattern0)" />
+
+      <defs>
+        <pattern
+          id="pattern0"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use href="#image0" transform="scale(0.00195312)" />
+        </pattern>
+
+        <image
+          id="image0"
+          width="512"
+          height="512"
+          preserveAspectRatio="none"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6..."
+        />
+      </defs>
+    </svg>
+  );
+}
+export function Block() {
+  return (
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100" height="100" fill="url(#pattern0)" />
+
+      <defs>
+        <pattern
+          id="pattern0"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use href="#image0" transform="scale(0.00195312)" />
+        </pattern>
+
+        <image
+          id="image0"
+          width="512"
+          height="512"
+          preserveAspectRatio="none"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6..."
+        />
+      </defs>
+    </svg>
+  );
+}
+export function Schedule() {
+  return (
+    <svg
+      width="100"
+      height="100"
+      viewBox="0 0 100 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width="100" height="100" fill="url(#pattern0_92_847)" />
+
+      <defs>
+        <pattern
+          id="pattern0_92_847"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use href="#image0_92_847" transform="scale(0.00195312)" />
+        </pattern>
+
+        <image
+          id="image0_92_847"
+          width="512"
+          height="512"
+          preserveAspectRatio="none"
+          href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURB..."
+        />
+      </defs>
+    </svg>
+  );
+}
+
