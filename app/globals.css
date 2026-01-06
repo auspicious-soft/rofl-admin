@@ -14,13 +14,38 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #FFFFFF;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+  background: white;
   color: var(--foreground);
+  height: 100vh;
+  width: 100vw;
   font-family: Arial, Helvetica, sans-serif;
+  margin:0px;
+  padding:0px;
 }
+@font-face {
+  font-family: "CabinetGrotesk";
+  src: url("../app/assets/fonts/CabinetGrotesk-Regular.otf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+ 
+:root {
+  --font-cabinet-grotesk: 'CabinetGrotesk', sans-serif;
+}
+ 
+body {
+  font-family: var(--font-cabinet-grotesk), sans-serif;
+}
+.magison {
+  font-family: var(--font-magison), sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
