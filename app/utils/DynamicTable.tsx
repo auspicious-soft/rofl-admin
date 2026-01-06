@@ -148,7 +148,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
                         >
                           <OpenEye />
                         </button>
-                      )}
+                      )} 
                       {actions.approve && (
                         <button
                           onClick={() => (actions as any).approve(row)}
