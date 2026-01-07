@@ -11,22 +11,31 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const PAGE_TITLES: Record<string, string> = {
-  "/sellers": "Sellers",
-  "/buyers": "Buyers",
-  "/dashboard": "Dashboard",
-  "/orders": "Orders",
-  "/profile": "Profile",
-};
+  const PAGE_TITLES: Array<{
+  pattern: RegExp;
+  title: string;
+}> = [
+  { pattern: /^\/dashboard$/, title: "Dashboard" },
+  { pattern: /^\/sellers$/, title: "Sellers" },
+  { pattern: /^\/buyers$/, title: "Buyers" },
+  { pattern: /^\/orders$/, title: "Orders" },
+  { pattern: /^\/profile$/, title: "Profile" },
+
+  // admin routes
+  { pattern: /^\/admin\/items\/detail$/, title: "Item" },
+  { pattern: /^\/admin\/winners$/, title: "Winners & Fulfillment" },
+  { pattern: /^\/admin\/users\/[^/]+$/, title: "User Details" }, // ← ID at end
+];
+
 
 
 const pageTitle =
-  PAGE_TITLES[pathname] ??
+  PAGE_TITLES.find(({ pattern }) => pattern.test(pathname))?.title ??
   pathname
     .split("/")
     .filter(Boolean)
     .pop()
-    ?.replace("-", " ")
+    ?.replace(/-/g, " ")
     .replace(/\b\w/g, (c) => c.toUpperCase());
 
 

@@ -1,12 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation"; // ✅ import for routing
-
+import { usePathname, useRouter } from "next/navigation";
 
 export default function SideBar() {
   const [collapsed, setCollapsed] = useState(false);
-  // const {setUser} = useAuth()
   const pathname = usePathname();
   const router = useRouter();
 
@@ -14,114 +12,99 @@ export default function SideBar() {
     { name: "Dashboard", icon: "/icons/Frame.svg", path: "/admin/dashboard" },
     { name: "Sellers", icon: "/icons/users.svg", path: "/admin/sellers" },
     { name: "Items", icon: "/icons/item.svg", path: "/admin/items" },
-    {
-      name: "Users",
-      icon: "/icons/users.svg",
-      path: "/admin/users",
-    },
-    {
-      name: "Winners&Fulfillment",
-      icon: "/icons/winner.svg",
-      path: "/admin/winners",
-    },
-    {
-      name: "Weekly Giveaway",
-      icon: "/icons/weekly.svg",
-      path: "/admin/weekly-giveaway",
-    },
-    {
-      name: "Disputes",
-      icon: "/icons/disputes.svg",
-      path: "/admin/disputes",
-    },
-    {
-      name: "Revenue Overview",
-      icon: "/icons/revenue.svg",
-      path: "/admin/revenue-overview",
-    },
-    {
-      name: "Manage Banners",
-      icon: "/icons/gallery.svg",
-      path: "/admin/manage-banners",
-    },
+    { name: "Users", icon: "/icons/users.svg", path: "/admin/users" },
+    { name: "Winners&Fulfillment", icon: "/icons/winner.svg", path: "/admin/winners" },
+    { name: "Weekly Giveaway", icon: "/icons/weekly.svg", path: "/admin/weekly-giveaway" },
+    { name: "Disputes", icon: "/icons/disputes.svg", path: "/admin/disputes" },
+    { name: "Revenue Overview", icon: "/icons/revenue.svg", path: "/admin/revenue-overview" },
+    { name: "Manage Banners", icon: "/icons/gallery.svg", path: "/admin/manage-banners" },
   ];
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 1000) {
-        setCollapsed(true);
-      } else {
-        setCollapsed(false);
-      }
+      setCollapsed(window.innerWidth <= 1000);
     };
-
-    handleResize(); // run on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   return (
     <div
       className={`
-    m-5 p-4 flex flex-col justify-between bg-[#FFFFFF] rounded-[10px] text-white transition-all duration-100
-    ${collapsed ? "w-25 min-w-25 pt-0" : "min-w-65  w-65 pt-0"}
-    overflow-y-auto scrollbar-hide
-  `}
+        m-5 p-4 flex flex-col justify-between bg-white rounded-[10px]
+        transition-all duration-100
+        ${collapsed ? "w-25 min-w-25" : "w-65 min-w-65"}
+        overflow-y-auto scrollbar-hide
+      `}
     >
-      {/* Top Section */}
+      {/* Top */}
       <div>
         <div
-          className={`
-            flex items-center justify-between
-            ${collapsed ? "flex-col-reverse gap-2 pt-2" : "flex-row p-4"}
-          `}
+          className={`flex items-center justify-between ${
+            collapsed ? "flex-col-reverse gap-2 pt-2" : "p-4"
+          }`}
         >
-          {/* Logo */}
           <Image
-            src={"/authleftlogo.svg"}
-            width={25}
-            height={25}
+            src="/authleftlogo.svg"
+            width={96}
+            height={96}
             alt="Logo"
-            className={`
-              transition-all duration-300
-              ${collapsed ? "w-24 h-24" : "w-24"}
-            `}
+            className="w-24"
           />
 
-          {/* Toggle button */}
           <button onClick={() => setCollapsed(!collapsed)}>
-            <Image
-              src="/icons/collapse.svg"
-              alt="icons"
-              height={25}
-              width={25}
-              className="cursor-pointer"
-            />
+            <Image src="/icons/collapse.svg" alt="toggle" width={25} height={25} />
           </button>
         </div>
 
-        {/* Menu Items */}
+        {/* Menu */}
         <nav className="mt-6 flex flex-col gap-1">
           {menuItems.map((item, idx) => {
             const isActive =
               item.path === "/admin"
                 ? pathname === "/admin"
                 : pathname.startsWith(item.path);
+
             return (
               <button
                 key={idx}
-                onClick={() => router.push(item.path)} // ✅ navigation
+                onClick={() => router.push(item.path)}
                 className={`
-                  flex items-center rounded-md transition-colors
-                  ${collapsed ? "gap-0 justify-center py-4" : "gap-3 p-4"}
-                  ${isActive ? "bg-[#F2482D] text-white" : "hover:bg-[#F2482D]"}
+                  group flex items-center rounded-md transition-all
+                  ${collapsed ? "justify-center py-4" : "gap-3 p-4"}
+                  ${
+                    isActive
+                      ? "bg-[#F2482D] text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                      : "hover:bg-[#F2482D]"
+                  }
                 `}
               >
-                <span className="flex-shrink-0">
-                  <Image src={item.icon} alt="icons" width={25} height={25} />
-                </span>
+                {/* Icon */}
+                <Image
+                  src={item.icon}
+                  alt={item.name}
+                  width={25}
+                  height={25}
+                  className={`
+                    transition-all
+                    ${
+                      isActive
+                        ? "filter brightness-0 invert"
+                        : "group-hover:filter group-hover:brightness-0 group-hover:invert"
+                    }
+                  `}
+                />
+
+                {/* Text */}
                 {!collapsed && (
-                  <span className="text-[#464646] font-medium">
+                  <span
+                    className={`font-medium transition-colors ${
+                      isActive
+                        ? "text-white"
+                        : "text-[#464646] group-hover:text-white"
+                    }`}
+                  >
                     {item.name}
                   </span>
                 )}
@@ -131,20 +114,25 @@ export default function SideBar() {
         </nav>
       </div>
 
-      {/* Bottom Section */}
-      <div>
-        <button
-          // onClick={()=> {localStorage.clear(); setUser(null)}}
-          className={`
-            flex items-center px-4 py-3 w-full rounded-md transition-colors
-            ${collapsed ? "gap-0 justify-center" : "gap-3"}
-            hover:bg-[#F2482D]
-          `}
-        >
-          <Image src="/icons/logout.svg" alt="icons" height={25} width={25} />
-          {!collapsed && <span className="text-[#464646]">Logout</span>}
-        </button>
-      </div>
+      {/* Bottom */}
+      <button
+        className={`
+          flex items-center w-full rounded-md transition-colors
+          ${collapsed ? "justify-center py-3" : "gap-3 px-4 py-3"}
+          hover:bg-[#F2482D] group
+        `}
+      >
+        <Image
+          src="/icons/logout.svg"
+          alt="logout"
+          width={25}
+          height={25}
+          className="group-hover:filter group-hover:brightness-0 group-hover:invert"
+        />
+        {!collapsed && (
+          <span className="text-[#464646] group-hover:text-white">Logout</span>
+        )}
+      </button>
     </div>
   );
 }

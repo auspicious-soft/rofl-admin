@@ -2,11 +2,11 @@
 
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 export default function Page() {
-  const [step, setStep] = useState<1 | 2>(1);
-  const[modalOpen,setModalOpen]=useState(false)
+  const router = useRouter()
   const [formData, setFormData] = useState({
     title: "",
     payout: "",
@@ -30,7 +30,7 @@ export default function Page() {
     <div className="min-h-screen bg-[#FFF5F5] flex justify-center py-4">
       <div className="w-full max-w-6xl">
         {/* ===================== STEP 1 ===================== */}
-        {step === 1 && (
+        
           <>
             <h2 className="text-sm font-medium text-gray-800 mb-2">
               Basic Details
@@ -134,14 +134,14 @@ export default function Page() {
             {/* Next */}
             <div className="flex justify-end mt-6">
               <button
-                onClick={() => setStep(2)}
+                onClick={()=>router.push("/admin/items/host-item/detail")}
                 className="bg-[#F04C2E] w-52 h-14 border border-[#000000] text-white rounded-xl flex items-center justify-center gap-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
               >
                 Next <ArrowRight />
               </button>
             </div>
           </>
-        )}
+        
 
         {/* ===================== STEP 2 (IMAGE-2) ===================== */}
         

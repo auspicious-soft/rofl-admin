@@ -67,7 +67,9 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
       {(title || headerActions?.dropdowns?.length) && (
         <div className="flex justify-between mb-4">
           {title && (
-            <h2 className="text-[#F2482D] text-2xl font-normal leading-8 [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison">{title}</h2>
+            <h2 className="text-[#F2482D] text-2xl font-normal leading-8 [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison">
+              {title}
+            </h2>
           )}
         </div>
       )}
@@ -112,12 +114,14 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
                 {rowActions && (
                   <td className="py-3 px-4">
                     <div className="flex gap-2">
-                      {rowActions.map((action : any) => {
+                      {rowActions.map((action: any, actionIndex: number) => {
                         const isText = action.variant === "text";
+
+                        const key = `action-${action.key}-${index}-${actionIndex}`;
 
                         return (
                           <button
-                            key={action.key}
+                            key={key}
                             onClick={() => action.onClick(row)}
                             className={
                               isText
@@ -139,12 +143,12 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
       </div>
 
       {pagination.enabled && totalPages > 1 && (
-        <div className="mt-4 flex justify-between">
+        <div className="mt-4 flex flex-wrap justify-between">
           <span className="text-sm text-gray-600">
             Page {currentPage} of {totalPages}
           </span>
 
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => p - 1)}

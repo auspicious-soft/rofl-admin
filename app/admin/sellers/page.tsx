@@ -273,8 +273,8 @@ const SellerPage = () => {
     <div className="min-h-screen p-6">
       <div className="mx-auto">
         {/* Tab Navigation */}
-        <div className="flex justify-between">
-          <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap gap-2 mb-6">
             <button
               onClick={() => setActiveTab("active")}
               className={`px-5 bg-White cursor-pointer rounded-[10px] h-12 ${

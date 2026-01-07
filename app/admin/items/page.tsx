@@ -197,17 +197,6 @@ const ItemsPage = () => {
     item.itemId.toLowerCase().includes(searchQuery.toLowerCase())
 );
 
-
-  // Modal handlers
-  const openModal = (type: string, row: any) => {
-    setModalState({ isOpen: true, type, selectedRow: row });
-  };
-
-  const closeModal = () => {
-    setModalState({ isOpen: false, type: null, selectedRow: null });
-  };
-
-
   const activeActions = [
     {
       key: "view",
@@ -218,80 +207,14 @@ const ItemsPage = () => {
     },
   ];
 
-  const pendingActions = [
-    {
-      key: "approve",
-      icon: <Check size={16} />,
-      variant: "icon",
-      onClick: (row: any) => openModal('approve', row),
-      className: "bg-[#497BC6] text-white hover:bg-[#497BC6]",
-    },
-    {
-      key: "reject",
-      icon: <Delete />,
-      variant: "icon",
-      onClick: (row: any) => openModal('reject', row),
-      className: "bg-[#F2482D] text-white hover:bg-[#F2482D]",
-    },
-  ];
 
-  const blockedActions = [
-    {
-      key: "unblock",
-      label: "Unblock",
-      variant: "text",
-      onClick: (row: any) => openModal('unblock', row),
-    },
-    {
-      key: "view",
-      icon: <OpenEye />,
-      variant: "icon",
-      onClick: (row: any) => console.log("View", row),
-      className: "bg-[#497BC6] text-white hover:bg-[#497BC6]",
-    },
-  ];
-
-  const AttachmentsTabs = () => {
-    const tabs = ["ID Front", "ID Back", "Selfie"];
-
-    return (
-      <div className="flex gap-2">
-        {tabs.map((tab) => (
-          <span
-            key={tab}
-            className="px-2 py-1 text-xs border border-[#E6E6E6] rounded cursor-pointer bg-[#FFF6F6] "
-          >
-            {tab}
-          </span>
-        ))}
-      </div>
-    );
-  };
-
-  const pendingColumns = [
-    { key: "sellerName", label: "Seller Name" },
-    { key: "email", label: "Email" },
-    { key: "joined", label: "Submitted" },
-    {
-      key: "attachments",
-      label: "Attachments",
-      render: () => <AttachmentsTabs />,
-    },
-  ];
-
-  const blockedColumns = [
-    { key: "sellerName", label: "Seller Name" },
-    { key: "email", label: "Email" },
-    { key: "blockedOn", label: "Blocked On" },
-    { key: "adminNotes", label: "Admin Notes" },
-  ];
 
   return (
     <div className="min-h-screen py-6">
       <div className="mx-auto">
         {/* Tab Navigation */}
-        <div className="flex justify-between">
-          <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap mb-2 justify-between">
+          <div className="flex flex-wrap gap-2 mb-6">
             <button
               onClick={() => setActiveTab("allItems")}
               className={`px-5 bg-White cursor-pointer rounded-[10px] h-12 ${

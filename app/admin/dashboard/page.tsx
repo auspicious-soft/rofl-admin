@@ -22,8 +22,7 @@ interface TableColumn {
 
 // Main Dashboard Page
 const DashboardPage = () => {
-
-  const router = useRouter()
+  const router = useRouter();
   // Active Items Data
   const activeItemsData = [
     {
@@ -72,20 +71,19 @@ const DashboardPage = () => {
   ];
 
   // Recent Winners Data
-const recentWinnersData = [
-  { position: "2nd", name: "Jordan Mitchell" },
-  { position: "3rd", name: "Taylor Johnson" },
-  { position: "4th", name: "Alex Smith" },
-  { position: "5th", name: "Alexandra Brown" },
-  { position: "6th", name: "Chris Williams" },
-  { position: "7th", name: "Chris Williams" },
-  { position: "8th", name: "Chris Williams" },
-  { position: "9th", name: "Chris Williams" },
-  { position: "10th", name: "Chris Williams" },
-  { position: "11th", name: "Chris Williams" },
-  { position: "12th", name: "Chris Williams" },
-];
-
+  const recentWinnersData = [
+    { position: "2nd", name: "Jordan Mitchell" },
+    { position: "3rd", name: "Taylor Johnson" },
+    { position: "4th", name: "Alex Smith" },
+    { position: "5th", name: "Alexandra Brown" },
+    { position: "6th", name: "Chris Williams" },
+    { position: "7th", name: "Chris Williams" },
+    { position: "8th", name: "Chris Williams" },
+    { position: "9th", name: "Chris Williams" },
+    { position: "10th", name: "Chris Williams" },
+    { position: "11th", name: "Chris Williams" },
+    { position: "12th", name: "Chris Williams" },
+  ];
 
   const data = [
     { month: "01", value: 0 },
@@ -102,7 +100,7 @@ const recentWinnersData = [
     { month: "12", value: 135 },
   ];
 
-const activeActions = [
+  const activeActions = [
     {
       key: "view",
       icon: <OpenEye />,
@@ -161,43 +159,45 @@ const activeActions = [
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-4 w-full max-w-sm">
-      {/* Header */}
-      <h2 className="text-[#F2482D]  magison [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] text-xl font-semibold text-lg mb-4">
-        Recent Winners
-      </h2>
+          <div className="bg-white rounded-xl shadow-sm p-4 w-full max-w-sm overflow-hidden">
+            {/* Header */}
+            <h2 className="text-[#F2482D] magison [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] text-xl mb-4">
+              Recent Winners
+            </h2>
 
-      {/* List */}
-      <div className="space-y-3 max-h-100 overflow-y-auto pr-1">
-        {recentWinnersData.map((item, index) => (
-          <div
-            key={index}
-            className="flex items-center justify-between"
-          >
-            {/* Left: Position */}
-            <div className="w-10 text-sm text-gray-500">
-              {item.position}
+            {/* Scroll Container */}
+            <div className="max-h-100 overflow-y-auto overflow-x-auto pr-1">
+              <div className="space-y-3 w-max">
+                {recentWinnersData.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-3 whitespace-nowrap min-w-64"
+                  >
+                    {/* Position */}
+                    <div className="w-10 text-sm text-gray-500 shrink-0">
+                      {item.position}
+                    </div>
+
+                    {/* Name */}
+                    <div className="flex-1 text-sm font-medium text-gray-800">
+                      {item.name}
+                    </div>
+
+                    {/* Action */}
+                    <button className="w-7 h-7 flex items-center justify-center text-white rounded-md bg-[#497BC6] shrink-0">
+                      <OpenEye />
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
-
-            {/* Middle: Name */}
-            <div className="flex-1 text-sm font-medium text-gray-800">
-              {item.name}
-            </div>
-
-            {/* Right: Action */}
-            <button className="w-7 h-7 flex items-center justify-center text-white rounded-md bg-[#497BC6]">
-              <OpenEye />
-            </button>
           </div>
-        ))}
-      </div>
-    </div>
         </div>
 
         {/* Bottom Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 bg-white rounded-lg shadow-sm p-6">
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex flex-wrap items-center justify-between mb-4">
               <h2 className="text-[#F2482D]  magison [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] text-xl font-semibold">
                 Items Sold
               </h2>
