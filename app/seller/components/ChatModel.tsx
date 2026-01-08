@@ -207,7 +207,7 @@ const ChatModal: React.FC<ChatModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 backdrop-blur-sm flex items-center justify-center bg-black/30 p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-4">
       <div className="rounded-2xl bg-[#FFF6F6] shadow-2xl w-full max-w-350 h-[90vh] flex flex-col overflow-hidden">
         {/* Header */}
         <div className="bg-[#FFF6F6] text-white px-4 py-5 flex justify-between items-center shrink-0">

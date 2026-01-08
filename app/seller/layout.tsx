@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import AdminShell from "./AdminShell";
+import SellerShell from "./SellerShell";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +16,7 @@ export default function RootLayout({
       style={{ background: "#FFF6F6" }}
       className={`h-screen antialiased overflow-hidden`}
     >
-      <AdminShell>{children}</AdminShell>
+      <SellerShell>{children}</SellerShell>
     </div>
   );
 }

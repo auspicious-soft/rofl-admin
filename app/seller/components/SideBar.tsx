@@ -15,30 +15,14 @@ export default function SideBar({
   const router = useRouter();
 
   const menuItems = [
-    { name: "Dashboard", icon: "/icons/Frame.svg", path: "/admin/dashboard" },
-    { name: "Sellers", icon: "/icons/users.svg", path: "/admin/sellers" },
-    { name: "Items", icon: "/icons/item.svg", path: "/admin/items" },
-    { name: "Users", icon: "/icons/users.svg", path: "/admin/users" },
+    { name: "Dashboard", icon: "/icons/Frame.svg", path: "/seller/dashboard" },
+    { name: "Items", icon: "/icons/item.svg", path: "/seller/items" },
+    { name: "Orders & Shipping", icon: "/icons/weekly.svg", path: "/seller/orders" },
+    { name: "Payouts", icon: "/icons/revenue.svg", path: "/seller/payouts" },
     {
-      name: "Winners&Fulfillment",
-      icon: "/icons/winner.svg",
-      path: "/admin/winners",
-    },
-    {
-      name: "Weekly Giveaway",
-      icon: "/icons/weekly.svg",
-      path: "/admin/weekly-giveaway",
-    },
-    { name: "Disputes", icon: "/icons/disputes.svg", path: "/admin/disputes" },
-    {
-      name: "Revenue Overview",
-      icon: "/icons/revenue.svg",
-      path: "/admin/revenue-overview",
-    },
-    {
-      name: "Manage Banners",
-      icon: "/icons/gallery.svg",
-      path: "/admin/manage-banners",
+      name: "Disputes",
+      icon: "/icons/disputes.svg",
+      path: "/seller/disputes",
     },
   ];
 

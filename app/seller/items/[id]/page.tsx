@@ -15,7 +15,7 @@ const AuctionMarketplace = () => {
       <div className="mx-auto space-y-6">
         {/* Product Section */}
         <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex items-start gap-6">
+          <div className="flex flex-wrap items-start gap-6">
             {/* Image Gallery */}
             <div className="shrink-0">
               <div className="w-64 h-64 bg-gray-100 rounded-lg overflow-hidden mb-3">
@@ -27,7 +27,7 @@ const AuctionMarketplace = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div
                     key={i}
@@ -46,7 +46,7 @@ const AuctionMarketplace = () => {
             </div>
 
             {/* Product Details Grid */}
-            <div className="flex-1 space-y-6">
+            <div className="flex-1 flex-wrap space-y-6">
               {/* Header */}
               <div className="flex items-center justify-between">
                 <h1 className="text-2xl [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison font-bold text-[#F2482D]">
@@ -58,7 +58,7 @@ const AuctionMarketplace = () => {
               </div>
 
               {/* Highlighted Summary */}
-              <div className="grid grid-cols-4 gap-6 border border-[#E6E6E6] rounded-xl bg-[#FFF6F6] p-5">
+              <div className="grid lg:grid-cols-4  gap-6 border border-[#E6E6E6] rounded-xl bg-[#FFF6F6] p-5">
                 <div>
                   <p className="text-sm text-gray-500">Desired Net Payout</p>
                   <p className="text-xl [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison font-bold text-[#F2482D]">
@@ -83,7 +83,7 @@ const AuctionMarketplace = () => {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-x-6 gap-y-5">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-5">
                 <Stat label="Ticket Price" value="$50" />
                 <Stat label="Total Tickets" value="1440" />
                 <Stat label="Tickets Sold" value="842" />
@@ -106,120 +106,89 @@ const AuctionMarketplace = () => {
         </div>
 
         {/* User Information and Winner Section */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid  lg:grid-cols-2 gap-6">
           {/* User Profile */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <div className="flex gap-4">
-              <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
-                alt="Alexander Thompson"
-                width={100}
-                height={100}
-                className="w-24 h-24 rounded-lg object-cover"
-              />
-              <div className="flex-1">
-                <h2 className="text-2xl [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison font-bold text-[#F2482D]">
-                  Alexander Thompson
-                </h2>
-                <div className="grid grid-cols-2 mt-2">
-                  <div>
-                <p className="text-sm text-[#A49898] mb-1">Email Address</p>
-                <p className="text-base font-medium mb-2">
-                  thomas@bradiffmail.com
-                </p>
-                </div>
-                <div>
-                <p className="text-sm text-[#A49898] mb-1">Phone Number</p>
-                <p className="text-base font-medium mb-3">+1 547 458 7856</p>
-                </div>
-                </div>
-                <p className="text-sm text-[#A49898] mb-1">Address</p>
-                <p className="text-base font-medium mb-2">
-                  1234 Grandiose Ave, Apt 7, Port Washington
-                </p>
-                <p className="text-base font-medium mb-2">NY 10022</p>
-              </div>
-            </div>
-          </div>
-
           {/* Winner Card */}
-          <div className="max-w-3xl relative border border-[#E6E6E6] rounded-2xl overflow-hidden bg-[#F54A2A] text-white">
+          <div className="relative border border-[#E6E6E6] rounded-2xl overflow-hidden bg-[#F54A2A] text-white">
             {/* Top Image Banner */}
             <div
-              className="h-40 bg-cover bg-center"
+              className="h-40 bg-cover bg-center relative"
               style={{
                 backgroundImage:
                   "url('https://images.unsplash.com/photo-1511512578047-dfb367046420')",
               }}
-            />
-
-            {/* Content */}
-            <div className="p-6 space-y-6">
-              {/* Header */}
-              <div className="flex absolute px-3 gap-4 py-2.5 rounded-[10px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)] border border-black top-30 right-28 bg-[#F2482D] items-center justify-between">
-                <div className="flex items-center gap-4">
+            >
+              {/* RESPONSIVE ABSOLUTE HEADER */}
+              <div
+                className="
+        absolute
+        -bottom-8
+        left-4
+        right-4
+        lg:left-auto
+        lg:right-14
+        2xl:right-38
+        flex
+        flex-col
+        lg:flex-row
+        items-center
+        lg:items-center
+        justify-between
+        gap-3
+        px-3
+        py-2.5
+        rounded-[10px]
+        bg-[#F2482D]
+        border
+        border-black
+        shadow-[2px_2px_0px_0px_rgba(0,0,0,1.00)]
+      "
+              >
+                <div className="flex items-center gap-3">
                   <Image
-                  src={"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"}
-                  alt="fd"
-                  width={50}
-                  height={50}
-                  className="rounded-full"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+                    alt="Winner"
+                    width={44}
+                    height={44}
+                    className="rounded-full"
                   />
-                  <h2 className="text-2xl magison font-semibold">Winner Name</h2>
+                  <h2 className="text-lg lg:text-2xl magison font-semibold">
+                    Winner Name
+                  </h2>
                 </div>
 
-                <button className="px-5 py-2 rounded-lg bg-[#272727] text-sm font-medium transition">
+                <button className="px-4 py-2 rounded-lg bg-[#272727] text-sm font-medium w-full lg:w-auto">
                   View Details
                 </button>
               </div>
+            </div>
 
-              {/* Divider */}
-              <div className="h-px " />
-
+            {/* Content */}
+            <div className="p-6 pt-14 space-y-6">
               {/* Bottom Info */}
-              <div className="grid grid-cols-2 gap-6 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
                 <div>
                   <p className="text-white/80 mb-1">Tracking Id</p>
                   <p className="font-medium">thomalex@radiffmail.com</p>
                 </div>
 
-                <div className="flex flex-col items-end pr-5">
+                <div className="sm:text-right">
                   <p className="text-white/80 mb-1">Phone Number</p>
                   <p className="font-medium">+1 547 458 7856</p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Disputes and Payout Section */}
-        <div className="grid grid-cols-2 gap-6">
-          {/* Disputes */}
-          <div className="bg-white rounded-lg shadow-sm p-6">
-            <h3 className="text-2xl [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] magison font-bold text-[#F2482D]">
-              Disputes
-            </h3>
-            <div className="space-y-3">
-              {[1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between py-3 border-b border-[#E6E6E6] last:border-0"
-                >
-                  <div className="flex items-center gap-3">
-                    <Image
-                  src={"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"}
-                  alt="fd"
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                  />
-                    <span className="font-medium">Name of User</span>
-                  </div>
-                  <button className="px-4 py-2 bg-[#605050] text-white text-sm rounded-lg transition-colors">
-                    Manage Dispute
-                  </button>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                <div>
+                  <p className="text-white/80 mb-1">Shipping Status</p>
+                  <p className="font-medium">Shipped</p>
                 </div>
-              ))}
+
+                <div className="sm:text-right">
+                  <p className="text-white/80 mb-1">Tracking Link / ID</p>
+                  <p className="font-medium">547 458 7856</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -229,31 +198,31 @@ const AuctionMarketplace = () => {
               Payout
             </h3>
             <div className="space-y-4 ">
-              <div className="flex items-center justify-between p-4 border-b border-[#E6E6E6]  rounded-lg">
+              <div className="flex flex-wrap items-center justify-between p-4 border-b border-[#E6E6E6]  rounded-lg">
                 <div>
                   <p className="font-semibold mb-1">20% Payment</p>
                   <p className="text-sm text-gray-600">Paid $2,000</p>
                 </div>
-                <button className="px-4 py-2 flex gap-2 justify-center bg-white border border-[#F2482D] text-[#F2482D] text-sm rounded-lg font-medium">
-                  <Paid/> <span>Paid Already</span> 
+                <button className="px-4 py-2 flex gap-2 justify-center bg-white border border-[#4FA662] text-[#4FA662] text-sm rounded-lg font-medium">
+                  <span>Received</span>
                 </button>
               </div>
 
-              <div className="flex items-center justify-between p-4 border-b border-[#E6E6E6] rounded-lg">
+              <div className="flex flex-wrap items-center justify-between p-4 border-b border-[#E6E6E6] rounded-lg">
                 <div>
                   <p className="font-semibold mb-1">80% Payment</p>
                   <p className="text-sm text-gray-600">To Pay $8,000</p>
                 </div>
-                <button className="px-4 py-2 bg-[#605050] text-white text-sm rounded-lg transition-colors">
+                <button className="px-4 py-2 bg-[#A49898] text-white text-sm rounded-lg transition-colors">
                   Release Funds
                 </button>
               </div>
-              <div className="flex items-center justify-between p-4 border-b border-[#E6E6E6] rounded-lg">
+              <div className="flex flex-wrap items-center justify-between p-4 border-b border-[#E6E6E6] rounded-lg">
                 <div>
                   <p className="font-semibold mb-1">80% Payment</p>
                   <p className="text-sm text-gray-600">To Pay $8,000</p>
                 </div>
-                <button className="px-4 py-2 bg-[#605050] text-white text-sm rounded-lg transition-colors">
+                <button className="px-4 py-2 bg-[#A49898] text-white text-sm rounded-lg transition-colors">
                   Release Funds
                 </button>
               </div>
