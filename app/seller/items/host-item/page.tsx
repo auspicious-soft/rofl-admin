@@ -30,9 +30,7 @@ export default function HostItem() {
     const files = e.target.files;
     if (!files) return;
 
-    const previews = Array.from(files).map((file) =>
-      URL.createObjectURL(file)
-    );
+    const previews = Array.from(files).map((file) => URL.createObjectURL(file));
 
     setImages((prev) => [...prev, ...previews]);
   };
@@ -48,7 +46,7 @@ export default function HostItem() {
 
   return (
     <div className="min-h-screen bg-[#FFF5F5] flex justify-center py-4">
-      <div className="w-full max-w-6xl">
+      <div className="w-full ">
         <h2 className="text-sm font-medium text-gray-800 mb-2">
           Basic Details
         </h2>
@@ -72,9 +70,7 @@ export default function HostItem() {
           {/* Payout + Timeline */}
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-xs mb-1">
-                Desired Net Payout
-              </label>
+              <label className="block text-xs mb-1">Desired Net Payout</label>
               <input
                 type="number"
                 value={formData.payout}
@@ -87,9 +83,7 @@ export default function HostItem() {
             </div>
 
             <div>
-              <label className="block text-xs mb-1">
-                Select Timeline
-              </label>
+              <label className="block text-xs mb-1">Select Timeline</label>
               <select
                 value={formData.timeline}
                 onChange={(e) =>
@@ -174,7 +168,9 @@ export default function HostItem() {
           </div>
 
           {/* Select Image with Prize (UI SAME, LOGIC FIXED) */}
-          <p className="mt-4 text-xs text-[#605050] ">Select Image with Prize</p>
+          <p className="mt-4 text-xs text-[#605050] ">
+            Select Image with Prize
+          </p>
           <div className="relative max-w-xs">
             <input
               type="text"
@@ -182,9 +178,7 @@ export default function HostItem() {
               placeholder="Select"
               value={selectedPrizeImage ? "Prize Image Selected" : ""}
               className={`w-full border border-[#E6E6E6] rounded-lg px-4 py-2 text-sm pr-10 bg-white ${
-                ownsPrize
-                  ? "cursor-pointer"
-                  : "cursor-not-allowed opacity-60"
+                ownsPrize ? "cursor-pointer" : "cursor-not-allowed opacity-60"
               }`}
               onClick={() => {
                 if (!ownsPrize) return;
@@ -225,9 +219,7 @@ export default function HostItem() {
         {/* Next Button */}
         <div className="flex justify-end mt-6">
           <button
-            onClick={() =>
-              router.push("/seller/items/host-item/45")
-            }
+            onClick={() => router.push("/seller/items/host-item/45")}
             className="bg-[#F04C2E] w-52 h-14 border border-[#000000] text-white rounded-xl flex items-center justify-center gap-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
           >
             Next <ArrowRight />

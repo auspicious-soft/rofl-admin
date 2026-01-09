@@ -2,8 +2,7 @@
 import React, { useState } from "react";
 import DynamicTable from "@/app/utils/DynamicTable";
 import { useRouter } from "next/navigation";
-import { Check, CheckCircle, X } from "lucide-react";
-import { Approve, Delete, OpenEye } from "@/app/utils/icons";
+import {  OpenEye } from "@/app/utils/icons";
 
 // Example Page Component - Sellers Management
 const ItemsPage = () => {
@@ -11,15 +10,6 @@ const ItemsPage = () => {
     "allItems"
   );
   const [searchQuery, setSearchQuery] = useState("");
-  const [modalState, setModalState] = useState<{
-    isOpen: boolean;
-    type: string | null;
-    selectedRow: any;
-  }>({
-    isOpen: false,
-    type: null,
-    selectedRow: null
-  });
   const router = useRouter();
 
   // Sample data for sellers

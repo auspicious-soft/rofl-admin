@@ -1,16 +1,13 @@
 "use client";
 
 import AuthLayout from "@/app/component/AuthLayout";
-import { ClosedEye, Eye } from "@/app/utils/icons";
-import { ArrowRight, Lock, MailOpen, MoveRight } from "lucide-react";
+import { ArrowRight, MailOpen } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export default function Home() {
-  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter()
   return (
-    <AuthLayout>
+    <AuthLayout logoClassName="mt-44">
       <form className="space-y-5 border border-[#eeeaea] p-5 rounded-3xl">
         {/* Heading */}
         <div className="text-center">

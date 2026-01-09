@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter()
   return (
-    <AuthLayout>
+    <AuthLayout logoClassName="mt-34">
       <form className="space-y-5 border border-[#eeeaea] p-5 rounded-3xl">
         {/* Heading */}
         <div className="text-center">

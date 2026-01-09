@@ -2,7 +2,7 @@
 
 import AuthLayout from "@/app/component/AuthLayout";
 import { ClosedEye, Eye } from "@/app/utils/icons";
-import { ArrowRight, Lock } from "lucide-react";
+import { ArrowRight, Lock, MailOpen } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <AuthLayout logoClassName="mt-60">
+    <AuthLayout logoClassName="mt-98">
       <form
         className="space-y-5 border border-[#eeeaea] p-5 rounded-3xl"
         onSubmit={handleSubmit}
@@ -31,11 +31,23 @@ export default function Home() {
         {/* Heading */}
         <div className="text-center">
           <h1 className="text-4xl text-center self-stretch magison [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] text-[#F2482D] drop-shadow-sm">
-            Create Password
+            Create Account
           </h1>
           <p className="mt-2 text-base font-normal text-[#464646]">
-            Create a strong new password and confirm it to secure access.
+            Only U.S. residents can sell. Identity verification is required.
           </p>
+        </div>
+
+ <div className="relative">
+          <span className="absolute inset-y-0 left-3 flex items-center text-gray-400">
+            <MailOpen size={16} />
+          </span>
+          <input
+            type="email"
+            required
+            placeholder="Email Address"
+            className="w-full rounded-xl border text-black border-gray-200 pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+          />
         </div>
 
         {/* Password */}
@@ -45,7 +57,7 @@ export default function Home() {
           </span>
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Set New Password"
+            placeholder="Password"
             required
             className="w-full rounded-xl border border-gray-200 pl-10 pr-10 py-3 text-black text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
           />
@@ -87,15 +99,39 @@ export default function Home() {
           <ArrowRight />
         </button>
 
-        <div className="text-center">
-          <button type="button" className="text-xs text-[#464646] ">
-            Remember Password?
-            <span className="underline text-zinc-700 text-sm font-normal cursor-pointer">
-              {" "}
-              Login{" "}
-            </span>
-          </button>
+        {/* Divider */}
+        <div className="flex items-center gap-3">
+          <div className="flex-1 h-px bg-gray-300" />
+          <span className="text-xs text-gray-500">Or</span>
+          <div className="flex-1 h-px bg-gray-300" />
         </div>
+
+        {/* Google Login */}
+        <button
+          type="button"
+          className="w-full flex items-center justify-center gap-3 border border-[#E6E6E6] rounded-xl py-3 text-sm font-medium text-black bg-[#FFFFFF] transition"
+        >
+          <Image
+            src="https://www.svgrepo.com/show/475656/google-color.svg"
+            alt="Google"
+            width={50}
+            height={50}
+            className="w-5 h-5"
+          />
+          Continue with Google
+        </button>
+
+        {/* Create Account */}
+        <p className="text-center text-sm text-black">
+          Already have an account?{" "}
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className=" font-medium underline hover:text-[#c42e17]"
+          >
+            Login
+          </button>
+        </p>
       </form>
 
       {showSuccessModal && (

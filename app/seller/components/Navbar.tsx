@@ -63,7 +63,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           aria-label="Open menu"
           className="p-2 rounded-md bg-white"
         >
-          <Menu size={20} />
+          <Menu size={20} color="black" />
         </button>
 
         <div className="flex items-center gap-4">
@@ -107,23 +107,12 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
                 <button
                   onClick={() => {
                     setOpen(false);
-                    router.push("/profile");
+                    router.push("/seller/account");
                   }}
                   className="w-full px-4 py-2 flex items-center gap-2 text-black text-sm hover:bg-gray-100"
                 >
                   <User size={16} />
                   Profile
-                </button>
-
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    router.push("/logout");
-                  }}
-                  className="w-full px-4 py-2 flex items-center gap-2 text-sm text-red-600 hover:bg-red-50"
-                >
-                  <LogOut size={16} />
-                  Logout
                 </button>
               </div>
             )}
@@ -180,23 +169,12 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
                 <button
                   onClick={() => {
                     setOpen(false);
-                    router.push("/profile");
+                    router.push("/seller/account");
                   }}
                   className="w-full px-4 py-2 flex items-center gap-2 text-black text-sm hover:bg-gray-100"
                 >
                   <User size={16} />
                   Profile
-                </button>
-
-                <button
-                  onClick={() => {
-                    setOpen(false);
-                    router.push("/logout");
-                  }}
-                  className="w-full px-4 py-2 flex items-center gap-2 text-sm text-red-600 hover:bg-red-50"
-                >
-                  <LogOut size={16} />
-                  Logout
                 </button>
               </div>
             )}
