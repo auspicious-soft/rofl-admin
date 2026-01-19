@@ -184,7 +184,7 @@ const DashboardPage = () => {
                     </div>
 
                     {/* Action */}
-                    <button className="w-7 h-7 flex items-center justify-center text-white rounded-md bg-[#497BC6] shrink-0">
+                    <button onClick={()=>router.push("/admin/users/45")} className="w-7 h-7 flex items-center justify-center text-white rounded-md bg-[#497BC6] shrink-0">
                       <OpenEye />
                     </button>
                   </div>

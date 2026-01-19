@@ -25,6 +25,7 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
     { pattern: /^\/admin\/items\/detail$/, title: "Item" },
     { pattern: /^\/admin\/winners$/, title: "Winners & Fulfillment" },
     { pattern: /^\/admin\/users\/[^/]+$/, title: "User Details" }, // ← ID at end
+    { pattern: /^\/admin\/sellers\/[^/]+$/, title: "User Details" }, // ← ID at end
   ];
 
   const pageTitle =
