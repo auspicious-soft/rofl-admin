@@ -113,7 +113,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
 
                 {rowActions && (
                   <td className="py-3 px-4">
-                    <div className="flex gap-2">
+                    <div className="flex justify-center gap-2">
                       {rowActions.map((action: any, actionIndex: number) => {
                         const isText = action.variant === "text";
 

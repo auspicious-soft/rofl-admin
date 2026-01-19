@@ -159,15 +159,15 @@ const DashboardPage = () => {
             />
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-4 w-full max-w-sm overflow-hidden">
+          <div className="bg-white rounded-xl shadow-sm p-4 w-full overflow-hidden">
             {/* Header */}
             <h2 className="text-[#F2482D] magison [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] text-xl mb-4">
               Recent Winners
             </h2>
 
             {/* Scroll Container */}
-            <div className="max-h-100 overflow-y-auto overflow-x-auto pr-1">
-              <div className="space-y-3 w-max">
+            <div className="max-h-100 w-full overflow-y-auto overflow-x-auto pr-1">
+              <div className="space-y-3 w-full">
                 {recentWinnersData.map((item, index) => (
                   <div
                     key={index}
