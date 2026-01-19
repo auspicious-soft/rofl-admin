@@ -14,7 +14,7 @@ export default function Home() {
         {/* Heading */}
         <div className="text-center">
           <h1 className="text-4xl text-center [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] self-stretch magison text-[#F2482D] drop-shadow-sm">
-            Login To Seller Account
+            Login To Your Account
           </h1>
           <p className="mt-2 text-base font-normal text-[#464646]">
             Sign in with email and password to securely access your account.
