@@ -9,7 +9,7 @@ export default function Home() {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
   return (
-    <AuthLayout logoClassName="mt-60">
+    <AuthLayout logoClassName="mt-50">
       <form className="space-y-5 border border-[#eeeaea] p-5 rounded-3xl">
         {/* Heading */}
         <div className="text-center">
