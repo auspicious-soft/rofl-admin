@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SideBar({
   open,
@@ -68,6 +69,7 @@ export default function SideBar({
             isMobile ? "p-4" : collapsed ? "flex-col-reverse gap-2 pt-2" : "p-4"
           }`}
         >
+          <Link href={"/admin/dashboard"}>
           <Image
             src="/authleftlogo.svg"
             width={96}
@@ -75,7 +77,7 @@ export default function SideBar({
             alt="Logo"
             className="w-24"
           />
-
+</Link>
           <button
             onClick={() => {
               setCollapsed(!collapsed);
