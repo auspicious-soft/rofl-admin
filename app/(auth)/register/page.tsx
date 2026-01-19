@@ -154,7 +154,7 @@ export default function Home() {
             </p>
 
             <button
-              className="mt-6 w-full rounded-xl bg-[#F2482D] py-3 text-white font-medium border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#c42e17] transition"
+              className="mt-6 w-full flex items-center justify-center rounded-xl bg-[#F2482D] py-3 text-white font-medium border border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#c42e17] transition"
               onClick={() => {
                 setShowSuccessModal(false);
                 router.push("/");
