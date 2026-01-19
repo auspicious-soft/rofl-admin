@@ -320,7 +320,7 @@ const SellerPage = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="bg-none">
+          <div className="bg-none mb-4">
             <div className="relative">
               <input
                 type="text"
