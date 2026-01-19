@@ -31,7 +31,7 @@ export default function Home() {
         {/* Heading */}
         <div className="text-center">
           <h1 className="text-4xl text-center self-stretch magison [text-shadow:1px_1px_0px_rgb(0_0_0/1.00)] text-[#F2482D] drop-shadow-sm">
-            Create Account
+            Create Seller Account
           </h1>
           <p className="mt-2 text-base font-normal text-[#464646]">
             Only U.S. residents can sell. Identity verification is required.
