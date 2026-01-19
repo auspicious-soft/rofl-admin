@@ -81,7 +81,7 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
               {columns.map((column) => (
                 <th
                   key={column.key}
-                  className="text-left py-3 px-4 text-sm font-medium text-[#272727]"
+                  className="text-left text-sm py-3 px-4 font-bold text-[#272727]"
                 >
                   {column.label}
                 </th>
