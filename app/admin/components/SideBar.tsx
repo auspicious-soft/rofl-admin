@@ -20,7 +20,7 @@ export default function SideBar({
     { name: "Items", icon: "/icons/item.svg", path: "/admin/items" },
     { name: "Users", icon: "/icons/users.svg", path: "/admin/users" },
     {
-      name: "Winners&Fulfillment",
+      name: "Winners & Fulfillment",
       icon: "/icons/winner.svg",
       path: "/admin/winners",
     },
@@ -55,10 +55,10 @@ export default function SideBar({
     <div
       className={`m-5 flex flex-col justify-between bg-white rounded-[10px] transition-all duration-100 h-full ${
         isMobile
-          ? "w-65 min-w-65"
+          ? "w-65 min-w-70"
           : collapsed
           ? "w-25 min-w-25"
-          : "w-65 min-w-65"
+          : "w-65 min-w-75"
       }`}
     >
       {/* Header */}
