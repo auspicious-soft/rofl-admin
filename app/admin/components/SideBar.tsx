@@ -205,7 +205,7 @@ export default function SideBar({
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="max-h-130">{sidebarInner(true)}</div>
+          <div className="h-130">{sidebarInner(true)}</div>
         </div>
       </div>
     </>
